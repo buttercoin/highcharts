@@ -5,6 +5,7 @@
     "type": "git",
     "url": "git://github.com/buttercoin/highchart.git"
   },
+  "main": "highstock.js"
   "description": "Repository with Highstock v1.3.7"
   "dependencies": {
     "jquery": "2.0.3"
