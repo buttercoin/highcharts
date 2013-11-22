@@ -1,0 +1,12 @@
+{
+  "name": "buttercoin-highstock",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/buttercoin/highchart.git"
+  },
+  "description": "Repository with Highstock v1.3.7"
+  "dependencies": {
+    "jquery": "2.0.3"
+  }
+}
