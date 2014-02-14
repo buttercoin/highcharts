@@ -9689,8 +9689,10 @@ Pointer.prototype = {
 		// normalize
 		e = this.normalize(e);
 
-		// #295
-		e.returnValue = false;
+
+		if (e.preventDefault) {
+			e.preventDefault();
+		}
 		
 		
 		if (chart.mouseIsDown === 'mousedown') {
