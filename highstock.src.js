@@ -285,9 +285,18 @@ function attr(elem, prop, value) {
 	if (isString(prop)) {
 		// set the value
 		if (defined(value)) {
-
-			elem[setAttribute](prop, value);
-
+			if (prop === "style") {
+				styleArray = value.split(';');
+				parsedStyle = {};
+				for (var s in styleArray) {
+					style = styleArray[s].split(':');
+					parsedStyle[style[0]] = style[1]
+				}
+				$(elem).css(parsedStyle);
+			}
+			else {
+				elem[setAttribute](prop, value);
+			}
 		// get the value
 		} else if (elem && elem.getAttribute) { // elem not defined when printing pie demo...
 			ret = elem.getAttribute(prop);
@@ -9680,8 +9689,10 @@ Pointer.prototype = {
 		// normalize
 		e = this.normalize(e);
 
-		// #295
-		e.returnValue = false;
+
+		if (e.preventDefault) {
+			e.preventDefault();
+		}
 		
 		
 		if (chart.mouseIsDown === 'mousedown') {
